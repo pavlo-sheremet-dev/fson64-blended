@@ -1,3 +1,5 @@
+import cardInfo from 'data/article.json';
+
 import {
   BlogCard,
   Container,
@@ -15,7 +17,15 @@ export const App = () => {
         <Heading marginBottom="50px" textAlign="center">
           Task 1
         </Heading>
-        <BlogCard />
+        <BlogCard
+          name={cardInfo.name}
+          postedAt={cardInfo.postedAt}
+          description={cardInfo.description}
+          tag={cardInfo.tag}
+          title={cardInfo.title}
+          avatar={cardInfo.avatar}
+          poster={cardInfo.poster}
+        />
 
         <Heading marginTop="50px" marginBottom="50px" textAlign="center">
           Task 2
