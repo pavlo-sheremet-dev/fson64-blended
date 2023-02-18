@@ -2,6 +2,6 @@
 
 # Tasks
 
-|    `Lesson`     |                                     `Practice Code`                                      |
-| :-------------: | :--------------------------------------------------------------------------------------: |
-| **Module - 01** | [Link](https://github.com/pavlo-sheremet-dev/bcfw-it-generation-practice/tree/module-01) |
+|    `Lesson`     |                               `Practice Code`                               |
+| :-------------: | :-------------------------------------------------------------------------: |
+| **Module - 01** | [Link](https://github.com/pavlo-sheremet-dev/fson64-blended/tree/module-01) |
