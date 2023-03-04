@@ -5,6 +5,7 @@ import { Grid, GridItem, SearchForm, EditForm, Text, Todo } from 'components';
 export class Todos extends Component {
   state = {
     todos: [],
+    editingTodo: null,
   };
 
   onSearchSubmit = todo => {
@@ -19,11 +20,31 @@ export class Todos extends Component {
     }));
   };
 
+  toggleEditForm = (obj = null) => {
+    this.setState({ editingTodo: obj });
+  };
+
+  editTodo = obj => {
+    this.setState(prevState => {
+      return {
+        todos: prevState.todos.map(todo => (todo.id === obj.id ? obj : todo)),
+      };
+    });
+  };
+
   render() {
-    const { todos } = this.state;
+    const { todos, editingTodo } = this.state;
     return (
       <>
-        <SearchForm onSubmit={this.onSearchSubmit} />
+        {!editingTodo ? (
+          <SearchForm onSubmit={this.onSearchSubmit} />
+        ) : (
+          <EditForm
+            editingTodo={editingTodo}
+            toggleEditForm={this.toggleEditForm}
+            editTodo={this.editTodo}
+          />
+        )}
         {Boolean(todos.length) && (
           <Grid>
             {todos.map((todo, index) => {
@@ -34,6 +55,7 @@ export class Todos extends Component {
                     text={todo.text}
                     index={index + 1}
                     onTodoDelete={this.onDelete}
+                    editTodo={this.toggleEditForm}
                   />
                 </GridItem>
               );
